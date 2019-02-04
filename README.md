@@ -1,2 +1,2 @@
-# fivechess-be
-五子棋nodesj后端
+# websocket-fivechess
+在线双人五子棋
