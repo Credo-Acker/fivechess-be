@@ -84,11 +84,21 @@ io.on('connection', socket => {
         } else if (confirmBlack && !confirmWhite) {
             message = "黑方已确认进入游戏，白方未确认";
         }
-        socket.emit('audience', {
-            msg: `你好，你现在是观众，${message}`,
-            role: 'audience',
-            chessBoard: chess
-        });
+        if (confirmBlack && confirmWhite) {
+            socket.emit('audience', {
+                msg: `你好，你现在是观众，${message}`,
+                role: 'audience',
+                chessBoard: chess,
+                start: "yes"
+            });
+        } else {
+            socket.emit('audience', {
+                msg: `你好，你现在是观众，${message}`,
+                role: 'audience',
+                chessBoard: chess,
+                start: "no"
+            });
+        }
         io.emit('audienceEnter', {
             msg: '一观众入场！热烈欢迎！',
             count: audience.length
