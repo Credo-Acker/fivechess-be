@@ -216,12 +216,12 @@ io.on('connection', socket => {
         }
 
         if (players.black == socket.id) {
-            socket.emit('againBlack', {
+            io.emit('againBlack', {
                 msg: '黑方打算重新开始游戏，请双方确认进入游戏。'
             });
             againBlack = true;
         } else if (players.white == socket.id) {
-            socket.emit('againWhite', {
+            io.emit('againWhite', {
                 msg: '白方打算重新开始游戏，请双方确认进入游戏。'
             });
             againWhite = true;
