@@ -2,7 +2,6 @@ const Koa = require('koa');
 const app = new Koa();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
-// const io = require('socket.io')(8081);
 
 let players = {
     black: null,
@@ -281,8 +280,8 @@ io.on('connection', socket => {
     });
 });
 
-server.listen(8081, () => {
-    console.log("listen : 8081");
+server.listen(8001, () => {
+    console.log("listen : 8001");
 });
 
 //判断输赢的函数（人人对战）
