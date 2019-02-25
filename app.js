@@ -1,6 +1,7 @@
 const Koa = require('koa');
 const app = new Koa();
 const server = require('http').Server(app);
+// const server = require('https').Server(app);
 const io = require('socket.io')(server);
 
 let players = {
